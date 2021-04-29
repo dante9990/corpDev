@@ -38,13 +38,21 @@ window.addEventListener('click', function (event) {
 })
 
 $(document).ready(function(){
-    $(".owl-carousel").owlCarousel({
+    $(".slide-one").owlCarousel({
         items: 1,
         nav: true,
         loop: true,
         autoplay: true,
         autoplayTimeout: 4000,
         navText:["",""]
+
+    });
+
+    $(".slide-two").owlCarousel({
+        items: 1,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 6000,
 
     });
   });
