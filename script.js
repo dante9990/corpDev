@@ -3,7 +3,8 @@
 let div = document.querySelector('.div');
 let value = document.querySelectorAll('.value');
 let text = document.querySelector('.text');
-let btn = document.querySelector('.btn')
+let btn = document.querySelector('.btn');
+let ul = document.querySelector('.ul')
 
 let banknotes = [5000, 1000, 500, 100, 50];
 function getMoney(amount) {
@@ -33,28 +34,34 @@ function getMoney(amount) {
         }
 
         return obj;
-    } else return 'warn'
+    } else return 'warn';
 
 }
+
+div.hidden = true;
+
 function setMoneyResultInNode(getMoneyResult) {
     //Функция Принимает в себя результат выполнения функции getMoney, после чего выводит в DOM полученные данные.
     //Если значение getMoney = 'warn', вывести на экран только его
     //Можно использовать заготовленный html выше, можно менять ее как хочешь, можно вообще создавать свой из под js,
     // html выше дан для понимания того как должен выглядеть вывод;
     if (getMoneyResult == 'warn') {
+        div.hidden = false;
+        ul.hidden = true;
         return div.innerHTML = getMoneyResult
     } else {
         for (let i = 0; i <= value.length - 1; i++) {
             value[i].innerHTML = getMoneyResult[banknotes[i]]
         }
 
+        div.hidden = true;
+        ul.hidden = false;
 
         return value.innerHTML = getMoneyResult;
     }
 }
 
 btn.addEventListener('click',() => {
+
     setMoneyResultInNode(getMoney(text.value));
 })
-
-//console.log(setMoneyResultInNode(getMoney(11650)))
