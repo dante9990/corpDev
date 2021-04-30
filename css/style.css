@@ -773,6 +773,7 @@ td {
     .main .btn {
         margin-left: 24px;
         margin-bottom: 64px;
+        z-index: 0;
     }
 
     .graph {
